@@ -42,7 +42,7 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
 
 ## Example 1-1
 
-See [html](linear_regression_example.html) or [jupyter notebook](linear_regression_example.ipynb) 
+See [html](http://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/ML_fundamentals/linear_regression_example.html) or [jupyter notebook](linear_regression_example.ipynb) 
 
 Modified from the book.
 
