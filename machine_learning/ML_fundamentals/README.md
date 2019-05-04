@@ -12,19 +12,24 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
 
 [Example 1-1 using Linear Regression](#example_1)
 
-## What is machine learning? <a name="what"></a>
+<a name="what"></a>
+
+## What is machine learning? 
 
 - Machine Learning is the science (and art) of programming computers so they can learn from data . 
+- A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E. Tom Mitchell, 1997
 
-- A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E. Tom Mitchell, 1997 
+ <a name="why"></a>
 
-## Why use machine learning? <a name="why"></a>
+## Why use machine learning? 
 
 1. It can be easier to update, maintain and most likely more accurate compared to traditional approaches.
 2. Some of the problems may be too complex for traditional approaches, or have no algorithms.
 3. Can dig into data and discover patterns that are not immediately apparent.
 
-## Types of machine learning systems <a name="types"></a>
+<a name="types"></a>
+
+## Types of machine learning systems 
 
 - Supvervised vs Unsupervised
   - Supervised: with labels
@@ -46,7 +51,9 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
   - Instance-based: The system learns the example by heart and then generalizes to new cases using a similarity measure.
   - Model-based: Build models and then make predictions.
 
-## Example 1-1 <a name="example_1"></a>
+<a name="example_1"></a>
+
+## Example 1-1 
 
 See [html](http://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/ML_fundamentals/linear_regression_example.html) or [jupyter notebook](linear_regression_example.ipynb) 
 
