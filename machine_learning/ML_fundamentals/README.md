@@ -4,9 +4,17 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
 
 ### Table of Content
 
+[What is machine learning?](#what)
 
+[Why use machine learning?](#why)
+
+[Types of machine learning systems](#types)
+
+[Example 1-1 using Linear Regression](#example1)
 
 ## What is machine learning?
+
+<a name="what"></a>
 
 - Machine Learning is the science (and art) of programming computers so they can learn from data . 
 
@@ -14,11 +22,15 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
 
 ## Why use machine learning?
 
+<a name="why"></a>
+
 1. It can be easier to update, maintain and most likely more accurate compared to traditional approaches.
 2. Some of the problems may be too complex for traditional approaches, or have no algorithms.
 3. Can dig into data and discover patterns that are not immediately apparent.
 
 ## Types of machine learning systems
+
+<a name="types"></a>
 
 - Supvervised vs Unsupervised
   - Supervised: with labels
@@ -41,6 +53,8 @@ Some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and
   - Model-based: Build models and then make predictions.
 
 ## Example 1-1
+
+<a name="example_1"></a>
 
 See [html](http://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/ML_fundamentals/linear_regression_example.html) or [jupyter notebook](linear_regression_example.ipynb) 
 
