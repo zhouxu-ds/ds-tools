@@ -153,25 +153,25 @@ Notes:
   
   7. Short-list the top three to five most promising models, preferring models that make different types of errors.
   
-  ##Fine-Tune the System 
-  
+## Fine-Tune the System 
+
   Notes: 
-  
+
   - You will want to use as much data as possible for this step, especially as you move toward the end of fine-tuning.
   
   - As always automate what you can.
   
     1. Fine-tune the hyperparameters using cross-validation.
-  
+    
        - Treat your data transformation choices as hyperparameters, especially when you are not sure about them (e.g., should I replace missing values with zero or with the median value? Or just drop the rows?).
        - Unless there are very few hyperparameter values to explore, prefer random search over grid search. If training is very long, you may prefer a Bayesian optimization approach (e.g., using Gaussian process priors, as described by Jasper Snoek, Hugo Larochelle, and Ryan Adams ). 
-  
+    
     2. Try Ensemble methods. Combining your best models will often perform better than running them individually.
-  
+    
     3. Once you are confident about your final model, measure its performance on the test set to estimate the generalization error.
-  
-  ## Present Your Solution 
-  
+
+## Present Your Solution 
+
   1. Document what you have done.
   
   2. Create a nice presentation.
@@ -186,9 +186,9 @@ Notes:
      - List your assumptions and your system’s limitations.
   
   5. Ensure your key findings are communicated through beautiful visualizations or easy-to-remember statements (e.g., “the median income is the number-one predictor of housing prices”).
-  
-  ## Launch! 
-  
+
+## Launch! 
+
   1. Get your solution ready for production (plug into production data inputs, write unit tests, etc.).
   2. Write monitoring code to check your system’s live performance at regular intervals and trigger alerts when it drops.
      - Beware of slow degradation too: models tend to “rot” as data evolves.
