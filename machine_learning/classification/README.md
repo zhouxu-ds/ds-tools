@@ -2,7 +2,7 @@
 
 Here are some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do). 
 
-The jupyter notebook that I ran through this part can be found here: [html](classification.html) and [Jupyter Notebook](classification.ipynb).
+The jupyter notebook that I ran through this part can be found here: [html](https://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/classification/classification.html) and [Jupyter Notebook](classification.ipynb).
 
 ## Table of Content
 
@@ -207,7 +207,7 @@ However, there are strategies that we can use to make binary classifiers multi c
 
 Usually most multiclass classification tasks are OvA, except SMV for OvO.
 
-###Multilabel Classification
+### Multilabel Classification
 
 The label y has more than 1 column.
 
