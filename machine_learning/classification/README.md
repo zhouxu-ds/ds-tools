@@ -2,6 +2,8 @@
 
 Here are some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do). 
 
+The jupyter notebook that I ran through this part can be found here: [html](classification.html) and [Jupyter Notebook](classification.ipynb).
+
 ## Table of Content
 
 - [Fetch the MNIST Dataset](#1)
@@ -29,6 +31,8 @@ y = y.astype(np.uint8)
 X_train, X_test, y_train, y_test = X[:60000], X[60000:], y[:60000], y[60000:]
 ```
 
+<a name='2'></a>
+
 ## Training a Binary Classifier
 
 Here we use Stochastic Gradient Descent (SGD) classifier, which has the advantage of being capable of handling very large datasets efficiently. This is in part because SGD deals with training instances independently, one at a time (which also makes SGD well suited for online learning ).
@@ -44,7 +48,11 @@ sgd_clf.fit(X_train, y_train_5)
 sgd_clf.predict([some_digit])
 ```
 
+<a name='3'></a>
+
 ## Performance Measures
+
+<a name='3-1'></a>
 
 #### Measuring Accuracy Using Cross-Validation
 
@@ -52,6 +60,8 @@ sgd_clf.predict([some_digit])
 from sklearn.model_selection import cross_val_score
 cross_val_score(sgd_clf, X_train, y_train_5, cv=3, scoring='accuracy')
 ```
+
+<a name='3-2'></a>
 
 ####  Confusion Matrix
 
@@ -101,6 +111,8 @@ recall_score(y_train_5, y_train_pred)
 f1_score(y_train_5, y_train_pred)
 ```
 
+<a name='3-3'></a>
+
 #### 3 Curves
 
 ```python
@@ -124,7 +136,7 @@ def plot_precision_recal_vs_threshold(precisions, recalls,
 plot_precision_recal_vs_threshold(precisions, recalls, thresholds)
 ```
 
-![curve1](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/classification/curve1.png)
+![curve1](curve1.png)
 
 ##### Precision vs Recall
 
@@ -142,7 +154,7 @@ plt.show()
 
 
 
-![curve2](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/classification/curve2.png)
+![curve2](curve2.png)
 
 ##### ROC Curve
 
@@ -166,7 +178,7 @@ plt.show()
 
 
 
-![curve3](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/classification/curve3.png)
+![curve3](curve3.png)
 
 One way to compare classifiers is to measure the area under the curve (AUC). A perfect classifier will have a ROC AUC equal to 1, whereas a purely random classifier will have a ROC AUC equal to 0.5. To calculate the AUC, we can use the `roc_auc_score` function provided by sklearn:
 
@@ -178,6 +190,8 @@ roc_auc_score(y_train_5, y_scores)
 ##### How to choose between precision/recall curve and ROC curve?
 
 As a rule of thumb, you should prefer the PR curve whenever the positive class is rare or when you care more about the false positives than the false negatives, and the ROC curve otherwise. 
+
+<a name='4'></a>
 
 ## Classification types
 
