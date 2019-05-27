@@ -10,3 +10,6 @@ This part of study follows the book of [Hands-on Machine Learning with Scikit-Le
 
 - [Classification](classification)
 
+- [Training Models](training_models)
+
+  
