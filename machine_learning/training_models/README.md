@@ -2,7 +2,7 @@
 
 Here are some notes that I jot down from [Hands-on Machine Learning with Scikit-Learn and TensorFlow](http://shop.oreilly.com/product/0636920052289.do). 
 
-The jupyter notebook that I ran through this part can be found here: [html](https://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/classification/training_models.html) and [Jupyter Notebook](training_models.ipynb).
+The jupyter notebook that I ran through this part can be found here: [html](https://htmlpreview.github.io/?https://github.com/xuzhou338/DS_tools/blob/master/machine_learning/training_models/training_models.html) and [Jupyter Notebook](training_models.ipynb).
 
 ## Table of Content
 
@@ -31,6 +31,8 @@ from sklearn.linear_model import LinearRegression
 lin_reg = LinearRegression()
 lin_reg.fit(X, y)
 ```
+
+<a name='2'></a>
 
 ## Gradient Descent
 
@@ -61,6 +63,8 @@ It is between Batch GD and Stochastic GD. It uses small random sets of instanced
 
 ![tb](tb.png)
 
+<a name='3'></a>
+
 ## Polynomial Regression
 
 We can add powers to each features as new features and then train a linear model on the extended set of features.
@@ -77,11 +81,15 @@ lin_reg.fit(X_poly, y)
 
 When there are multiple features, the polynomial regression is capable of finding relationships between features by adding combinations of features.
 
+<a name='4'></a>
+
 ## Learning Curves
 
 **Bias**: High when we have wrong assumptions on the model, usually underestimate the complexity of the model.
 
 **Variance**: High when it has excessive sensitivity to small variations in the training data.
+
+<a name='4-1'></a>
 
 #### Underfitting
 
@@ -89,15 +97,21 @@ High **bias** and low **variance**. Perform poorly on both training and validati
 
 ![underfitting](underfitting.png)
 
+<a name='4-2'></a>
+
 #### Overfitting
 
 Low **bias** and high **variance**. Perform well on training set, but generalizes poorly on validation set.
 
 ![overfitting](overfitting.png)
 
+<a name='5'></a>
+
 ## Regularized Linear Models
 
 A regularization term is added to the cost function. The alpha is a hyperparameter that at alpha=0, it is just linear regression. If alpha is very large, then all weights end up very close to zero and the result is a flat line going through the data's mean. Alpha represent how much the linear model is regularized.
+
+<a name='5-1'></a>
 
 ### Ridge Regression
 
@@ -117,6 +131,8 @@ sgd_reg.fit(X, y.ravel())
 sgd_reg.predict([[1.5]])
 ```
 
+<a name='5-2'></a>
+
 ### Lasso Regression
 
 Lasso uses l1 norm instead of l2. Different from RIdge, it tends to completely eliminate the weights of the least important features and set them to 0. It also has two ways to implement:
@@ -135,6 +151,8 @@ sgd_reg.fit(X, y.ravel())
 sgd_reg.predict([[1.5]])
 ```
 
+<a name='5-3'></a>
+
 ### Elastic Net
 
 It is in the middle between RIdge regression and Lasso regression. It uses a hypterparameter r that when r=0, it is Ridge regression; when r=1, it is Lasso regression.
@@ -148,6 +166,8 @@ elastic_net.predict([[1.5]])
 ```
 
 When should you use plain Linear Regression (i.e., without any regularization), Ridge, Lasso, or Elastic Net? It is almost always preferable to have at least a little bit of regularization, so generally you should avoid plain Linear Regression. Ridge is a good default, but if you suspect that only a few features are actually useful, you should prefer Lasso or Elastic Net since they tend to reduce the useless features’ weights down to zero as we have discussed. In general, Elastic Net is preferred over Lasso since Lasso may behave erratically when the number of features is greater than the number of training instances or when several features are strongly correlated. 
+
+<a name='6'></a>
 
 ## Logistic Regression
 
