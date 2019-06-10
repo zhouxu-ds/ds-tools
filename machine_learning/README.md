@@ -12,4 +12,6 @@ This part of study follows the book of [Hands-on Machine Learning with Scikit-Le
 
 - [Training Models](training_models)
 
+- [Support Vector Machines](svm)
+
   
