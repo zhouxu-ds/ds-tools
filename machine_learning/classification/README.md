@@ -205,7 +205,7 @@ However, there are strategies that we can use to make binary classifiers multi c
 - One-versus-all (**OvA**) (or One-versus-the-rest): Make n classifiers.
 - One-versus-one (**OvO**): Make n*(n-1)/2 classifiers.
 
-Usually most multiclass classification tasks are OvA, except SMV for OvO.
+Usually most multiclass classification tasks are OvA, except SVM for OvO.
 
 ### Multilabel Classification
 
