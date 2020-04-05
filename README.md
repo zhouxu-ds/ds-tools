@@ -2,7 +2,13 @@
 
 This repository is used to keep track of my learning progress of some essential tools for data science.
 
-### Table of Content
+### Main topics
 
 [Machine Learning](machine_learning)
+
+### Misc
+
+[Debug in Spyder](misc/debug_in_spyder)
+
+
 
