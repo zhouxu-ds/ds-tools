@@ -1,3 +1,4 @@
 # Misc Topics
 
-[debug in spyder](debug_in_spyder)
+- [Debug in spyder](debug_in_spyder)
+- [Regular Expression](regex)
