@@ -5,7 +5,6 @@ This repository is used to keep track of my learning progress of some essential 
 ### Main topics
 
 - [Algorithm Problems](algorithm_problems)
-
 - [Machine Learning](machine_learning)
 
 ### Misc
