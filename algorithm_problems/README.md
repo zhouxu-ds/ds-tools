@@ -45,7 +45,7 @@ Explanation: There are three ways to climb to the top.
 
 This is essentially a [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) problem - The next number equals to the sum of previous two numbers, such that the sequence is like: 0, 1, 1, 2, 5, 8, 13, 21, 34, 55, 89, 144...
 
-When n = 1, the answer should be $F_2=1$;
+When n = 1, the answer should be $`F_2=1`$;
 
 When n = 2, the answer should be $F_3=2$;
 
