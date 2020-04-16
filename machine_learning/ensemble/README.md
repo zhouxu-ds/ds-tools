@@ -50,7 +50,7 @@ voting_clf.predict(X_test)
 
 **Idea**: Use the same training algorithm for every predictor, but to be trained on different random subsets of the training set.
 
-![fig1](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/ensemble/fig1.png)
+![fig1](fig1.png)
 
 **Bagging**: The sampling is performed with replacement.
 
@@ -95,7 +95,7 @@ With bagging, only about 63% of all the training instances are sampled (some are
 
 **Idea**: Pay more attention to the training instances that the predecessor underfitted. It gives more weight to those incorrectly predicted samples, so it focuses on hard cases.
 
-![fig2](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/ensemble/fig2.png)
+![fig2](fig2.png)
 
 #### Gradient Boosting
 
@@ -109,7 +109,7 @@ When the subsample is below 1.0, only a subset is sampled from the training inst
 
 **Idea**: Train models to aggregate weaker learners, instead of voting.
 
-![fig3](/Users/Zhou/Documents/DataScience/DS_tools/machine_learning/ensemble/fig3.png)
+![fig3](fig3.png)
 
 **Note**: Each of the block is a predictor. Also, for N layers, we need to split the training instances into N subsets. For example using the figure above, subset 1 is used to train three predictors in Layer 1; then subset 2 is passed into the them and the outputs are used to train those in Layer 2; then subset 3 is used to  pass through Layer 1 and Layer 2 and the outputs are used to train Layer 3.
 
