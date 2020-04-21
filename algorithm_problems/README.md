@@ -64,6 +64,8 @@ def climb_stairs(n):
     return b
 ```
 
+<a name='max_depth'></a>
+
 ## Maxinum Depth of N-ary Tree (DFS)
 
 ### Problem Statement
