@@ -5,6 +5,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 ### Table of Content
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
+- [Maxinum Depth of N-ary Tree (DFS)](#max_depth)
 
 <a name='climbing_stairs'></a>
 
@@ -61,5 +62,78 @@ def climb_stairs(n):
     for i in range(n):
         a, b = b, a+b
     return b
+```
+
+## Maxinum Depth of N-ary Tree (DFS)
+
+### Problem Statement
+
+https://leetcode.com/problems/maximum-depth-of-n-ary-tree/
+
+Given a n-ary tree, find its maximum depth.
+
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+![max_depth_tree](max_depth_tree.png)
+
+For example, in the tree above, the depth is 3.
+
+### Python Implementation
+
+The Node for the N-ary tree can be implemented as:
+
+```python
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+```
+
+Then there can be two ways to find the maximum depth using DFS:
+
+```python
+def maxDepth(root):
+    """Find the max depth of the tree using recursion"""
+    if root is None: 
+        return 0 
+    elif root.children == []:
+        return 1
+    else: 
+        height = [self.maxDepth(c) for c in root.children]
+        return max(height) + 1 
+```
+
+```python
+def maxDepth(root):
+	"""
+	Find the max depth of the n-ary tree using iteration.
+	It store all nodes at all levels in the stack and then use variable 'detph' to record the max depth ever seen.
+	"""
+    stack = []
+    if root is not None:
+        stack.append((1, root))
+
+    depth = 0
+    while stack != []:
+        current_depth, root = stack.pop()
+        if root is not None:
+            depth = max(depth, current_depth)
+            for c in root.children:
+                stack.append((current_depth + 1, c))
+
+    return depth
+```
+
+I personally prefer the recuirison method because it is more concise and clear. It can also be extended to use with the depth of binary trees:
+
+```python
+def max_depth(root):
+    """Find the max depth of binary tree using recursion"""
+    if root is None:
+        return 0
+    if root.left is None and root.right is None:
+        return 1
+    else:
+        return max(max_depth(root.left), max_depth(root.right)) + 1
 ```
 
