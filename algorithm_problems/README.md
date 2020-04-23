@@ -6,6 +6,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
 - [Maxinum Depth of N-ary Tree (DFS)](#max_depth)
+- [Range Sum of BST](#range_sum_of_bst)
 
 <a name='climbing_stairs'></a>
 
@@ -137,5 +138,60 @@ def max_depth(root):
         return 1
     else:
         return max(max_depth(root.left), max_depth(root.right)) + 1
+```
+
+<a name='range_sum_of_bst'></a>
+
+## Range Sum of BST
+
+### Problem Statement
+
+https://leetcode.com/problems/range-sum-of-bst/
+
+Given the `root` node of a binary search tree, return the sum of values of all nodes with value between `L` and `R` (inclusive).
+
+The binary search tree is guaranteed to have unique values.
+
+### Python Implementation
+
+The TreeNode for BST is:
+
+```python
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+```
+
+There are two ways of doing it using DFS:
+
+```python
+def rangeSumBST(root, L, R):
+    """Standard way of using recursion"""
+    if root is None:
+        return 0
+    elif root.val < L:
+        return self.rangeSumBST(root.right, L, R)
+    elif root.val > R:
+        return self.rangeSumBST(root.left, L, R)
+    return root.val + self.rangeSumBST(root.left, L, R) + self.rangeSumBST(root.right, L, R)
+```
+
+```python
+def rangeSumBST(root, L, R):
+    """Using iteration"""
+    stack = [root]
+    sum = 0
+    while stack:
+        node = stack.pop()
+        if node:
+            if L <= node.val <= R:
+                sum += node.val
+            if node.val > L:
+                stack.append(node.left)
+            if node.val < R:
+                stack.append(node.right)
+    return sum
 ```
 
