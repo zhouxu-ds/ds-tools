@@ -5,7 +5,9 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 ### Table of Content
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
-- [Maxinum Depth of N-ary Tree (DFS)](#max_depth)
+- [Maxinum Depth of N-ary Tree](#max_depth)
+- [N-ary Tree Preorder Traversal](#preorder_traversal)
+- [N-ary Tree Postorder Traversal](#postorder_traversal)
 - [Range Sum of BST](#range_sum_of_bst)
 
 <a name='climbing_stairs'></a>
@@ -67,7 +69,7 @@ def climb_stairs(n):
 
 <a name='max_depth'></a>
 
-## Maxinum Depth of N-ary Tree (DFS)
+## Maxinum Depth of N-ary Tree
 
 ### Problem Statement
 
@@ -138,6 +140,150 @@ def max_depth(root):
         return 1
     else:
         return max(max_depth(root.left), max_depth(root.right)) + 1
+```
+
+<a name='preorder_traversal'></a>
+
+## N-ary Tree Preorder Traversal
+
+### Problem Statement
+
+https://leetcode.com/problems/n-ary-tree-preorder-traversal/
+
+Given an n-ary tree, return the *preorder* traversal of its nodes' values.
+
+**Note**: See [difference of tree traversals (inorder, preorder and postorder)](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
+
+**Example**: 
+
+![preorder_traversal_tree](preorder_traversal_tree.png)
+
+In such tree, we need to return the list `[1, 3, 5, 6, 2, 4]`.
+
+### Python Implementation
+
+The tree node is the same as above for N-ary trees:
+
+```python
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+```
+
+There are two ways to implement using DFS, with recursion or iteration:
+
+```python
+def preorder(root):
+    """Return the preorder traversal using recursion"""
+    if root is None:
+        return []
+    res = [root.val]
+    for child in root.children:
+        res.extend(preorder(child))
+    return res
+```
+
+```python
+def preorder(root):
+    """Return the preorder traversal using iteration"""
+    if root is None:
+        return []
+    res = []
+    stack = [root]
+    while stack:
+        node = stack.pop()
+        res.append(node.val)
+        stack.extend(node.children[::-1])
+    return res
+```
+
+<a name='postorder_traversal'></a>
+
+## N-ary Tree Postorder Traversal
+
+### Problem Statement
+
+https://leetcode.com/problems/n-ary-tree-postorder-traversal/
+
+Given an n-ary tree, return the *postorder* traversal of its nodes' values.
+
+**Note**: See [difference of tree traversals (inorder, preorder and postorder)](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
+
+**Example**: 
+
+![preorder_traversal_tree](preorder_traversal_tree.png)
+
+In such tree, we need to return the list `[5, 6, 3, 2, 4, 1]`.
+
+### Python Implementation
+
+The tree node is the same for N-ary trees:
+
+```python
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children = children
+```
+
+We can implement algorithms of either recursion or iteration:
+
+```python
+def postorder(root):
+    """
+    Return postorder traversal of the tree.
+    Compared to the recursive method in preorder traversal, this one append the value after doing recursion.
+    """
+    if root is None:
+        return []
+    res = []
+    def recursion(root, res):
+        for child in root.children:
+            recursion(root, res)
+		res.append(root.val)
+    recursion(root, res)
+    return res
+```
+
+```python
+def postorder(root):
+    """
+    Return post order traversal of the tree.
+    It uses a reverse hack: It does preorder traversal, but from right to left.
+    At the very end, reverse the order so that it becomes a postorder traversal.
+    """
+    if root is None:
+        return []
+    res, stack = [], [root]
+    while stack:
+        node = stack.pop()
+        res.append(node.val)
+        stack.extend(node.children)
+    return res[::-1]
+```
+
+```python
+def postorder(root):
+    """
+    Return post order traversal of the tree.
+    Instead of using the reverse hack, this one is the traditional way of implementing
+    postorder traversal, where we keep track of if we have visited the node before 
+    actually appending the value.
+    """
+    if root is None:
+        return []
+    res, stack = [], [(root, 0)]
+    while stack:
+        node, visited = stack.pop()
+        if node is None:
+            continue
+        if visited: # Won't append the value unless it's visited before
+            res.append(root.val)
+        else: # Mark it as visited, and then append the children into the stack
+            stack.append((node, 1))
+            stack.extend([(child, 0) for child in node.children[::-1]])
+    return res
 ```
 
 <a name='range_sum_of_bst'></a>
