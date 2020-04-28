@@ -5,6 +5,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 ### Table of Content
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
+- [Reverse Linked List](#reverse_linked_list)
 - [Maxinum Depth of N-ary Tree](#max_depth)
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
 - [N-ary Tree Postorder Traversal](#postorder_traversal)
@@ -65,6 +66,64 @@ def climb_stairs(n):
     for i in range(n):
         a, b = b, a+b
     return b
+```
+
+<a name='reverse_linked_list'></a>
+
+## Reverse Linked List
+
+### Problem Statement
+
+https://leetcode.com/problems/reverse-linked-list/
+
+Reverse a singly linked list.
+
+**Example:**
+
+```python
+Input: 1->2->3->4->5->NULL
+Output: 5->4->3->2->1->NULL
+```
+
+### Python Implementation
+
+It can be solved both recursively and iteratively:
+
+```python
+def reverseList(head):
+   	"""Recursive solution"""
+    def recur(cur, prev=None):
+        if cur is None:
+            return prev
+       	nex = cur.next
+        cur.next = prev
+        return recur(nex, cur)
+    return recur(head)
+```
+
+```python
+def reverseList(head):
+    """Iterative solution, intuitive version using temporary values"""
+    cur, prev = head, None
+    while cur:
+        nex = cur.next
+        cur.next = prev
+        prev = cur
+        cur = nex
+    return prev
+```
+
+This can be more concise by using multiple assignment:
+
+```python
+def reverseList(head):
+    """Iterative solution, concise version by using multiple assignment"""
+    cur, prev = head, None
+    while cur:
+		cur.next, prev, cur = prev, cur, cur.next
+        # Note the order matters here, it wont work if it is like:
+        # cur, prev, cur.next = cur.next, cur, prev
+    return prev
 ```
 
 <a name='max_depth'></a>
