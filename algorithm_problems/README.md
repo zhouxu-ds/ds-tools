@@ -5,6 +5,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 ### Table of Content
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
+- [DI String Match](#di_string_match)
 - [Reverse Linked List](#reverse_linked_list)
 - [Maxinum Depth of N-ary Tree](#max_depth)
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
@@ -67,6 +68,69 @@ def climb_stairs(n):
     for i in range(n):
         a, b = b, a+b
     return b
+```
+
+<a name='di_string_match'></a>
+
+## DI String Match
+
+### Problem Statement
+
+https://leetcode.com/problems/di-string-match/
+
+Given a string `S` that **only** contains "I" (increase) or "D" (decrease), let `N = S.length`.
+
+Return **any** permutation `A` of `[0, 1, ..., N]` such that for all `i = 0, ..., N-1`:
+
+- If `S[i] == "I"`, then `A[i] < A[i+1]`
+- If `S[i] == "D"`, then `A[i] > A[i+1]`
+
+**Example 1:**
+
+```
+Input: "IDID"
+Output: [0,4,1,3,2]
+```
+
+**Example 2:**
+
+```
+Input: "III"
+Output: [0,1,2,3]
+```
+
+**Example 3:**
+
+```
+Input: "DDI"
+Output: [3,2,0,1]
+```
+
+### Hint
+
+It seems difficult to come up with a solution. However, by observation, we can find some rules behind:
+
+- Starting from the first element:
+  - If it is "I", we can always go from min, which is 0.
+  - If it is "D", we can always go from the max, which is N.
+- Then the number used should be crossed out in the available options, so the min becomes 1, and max becomes N-1, etc.
+
+### Python Implementation
+
+With this trick, we can implement it in Python easily:
+
+```python
+def diStringMatch(S):
+    lo, hi = 0, len(S)
+    res = []
+    for ch in S:
+        if ch == 'I':
+            res.append(lo)
+            lo += 1
+        else:
+            res.append(hi)
+            hi -= 1
+    return res + [hi] # or [lo]. It doesn't matter because they are same right now
 ```
 
 <a name='reverse_linked_list'></a>
