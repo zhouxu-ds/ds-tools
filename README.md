@@ -8,6 +8,10 @@ This repository is used to keep track of my learning progress of some essential 
 - [Machine Learning](machine_learning)
 - [Data Science Handbook](ds_handbook)
   - [IPython (Jupyter Notebook)](ds_handbook/ipython)
+  - [Numpy](#numpy)
+  - [Pandas](#pandas)
+  - [Matplotlib](#matplotlib)
+  - [Scikit-Learn](#sklearn)
 
 ### Misc
 
