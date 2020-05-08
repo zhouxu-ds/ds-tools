@@ -5,7 +5,7 @@ This part of study follows the book [Python Data Science Handbook: Essential Too
 It covers 5 of the most importand data science tools:
 
 - [IPython (Jupyter Notebook)](ipython)
-- [Numpy](#numpy)
-- [Pandas](#pandas)
-- [Matplotlib](#matplotlib)
-- [Scikit-Learn](#sklearn)
+- [Numpy](numpy)
+- [Pandas](pandas)
+- [Matplotlib](matplotlib)
+- [Scikit-Learn](sklearn)

@@ -13,3 +13,7 @@ This part of study follows the book of [Hands-on Machine Learning with Scikit-Le
 - [Ensemble](ensemble)
 - [Dimensionality Reduction](dim_reduction)
 
+Here is an algorithm cheatsheet, provided by scikit-learn, with [details](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html):
+
+![ml_map](ml_map.png)
+
