@@ -1,8 +1,8 @@
 # IPython (Jupyter Notebook)
 
-The content is from [Python Data Science Handbook: Essential Tools for Working with Data](http://shop.oreilly.com/product/0636920034919.do).
+This part of study follows the book [Python Data Science Handbook: Essential Tools for Working with Data](http://shop.oreilly.com/product/0636920034919.do).
 
-The details of this page can be found in the [jupyter notebook](ipython.pynb), including examples and code excutions.
+The details of this page can be found in the [jupyter notebook](ipython.ipynb), including examples and code excutions.
 
 Here are some tricks that I feel useful:
 
