@@ -10,6 +10,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [Maxinum Depth of N-ary Tree](#max_depth)
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
 - [N-ary Tree Postorder Traversal](#postorder_traversal)
+- [Increasing Order BST(Inorder Traversal)](#inorder_traversal)
 - [Range Sum of BST](#range_sum_of_bst)
 - [Merge Two Binary Trees](#merge_two_binary_trees)
 
@@ -408,6 +409,100 @@ def postorder(root):
             stack.append((node, 1))
             stack.extend([(child, 0) for child in node.children[::-1]])
     return res
+```
+
+<a name='inorder_traversal'></a>
+
+## Increasing Order BST (Inorder Traversal)
+
+### Problem Statement 
+
+https://leetcode.com/problems/increasing-order-search-tree/
+
+Given a binary search tree, rearrange the tree in **in-order** so that the leftmost node in the tree is now the root of the tree, and every node has no left child and only 1 right child.
+
+```
+Example 1:
+Input: [5,3,6,2,4,null,8,1,null,null,null,7,9]
+
+       5
+      / \
+    3    6
+   / \    \
+  2   4    8
+ /        / \ 
+1        7   9
+
+Output: [1,null,2,null,3,null,4,null,5,null,6,null,7,null,8,null,9]
+
+ 1
+  \
+   2
+    \
+     3
+      \
+       4
+        \
+         5
+          \
+           6
+            \
+             7
+              \
+               8
+                \
+                 9  
+```
+
+### Python Implementation
+
+The `TreeNode` class for BST is defined as below:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+```
+
+This can be seen as an in-order traversal, which can be solved using either recursion or iteration:
+
+```python
+def increasingBST(root):
+    """Recursive solution"""
+    def inorder(node):
+        if node:
+            yield from inorder(node.left)
+            yield node.val
+            yield from inorder(node.right)       
+    res = cur = TreeNode(None)
+    for num in inorder(root):
+        cur.right = TreeNode(num)
+        cur = cur.right
+    return res.right
+```
+
+```python
+def increasingBST(root):
+    """Iterative solution"""
+    def inorder(node):
+        stack = [(root, 0)]
+        while stack:
+            head, lv = stack.pop()
+            if lv = 1: # the left node is visited
+                yield head.val
+                if head.right is not None:
+                    stack.append((head.right, 0))
+            else: # the left node has not been visited
+                stack.append((head, 1))
+                if head.left is not None:
+                    stack.append((head.left, 0))
+    res = cur = TreeNode(None)
+    for num in inorder(root):
+        cur.right = TreeNode(num)
+        cur = cur.right
+    return res.right
 ```
 
 <a name='range_sum_of_bst'></a>
