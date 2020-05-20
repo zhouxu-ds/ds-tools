@@ -6,6 +6,7 @@ Here are some tricks/usages of Python3 built-in functions and standard libraries
 
 - [map(), filter(), and reduce()](#map_filter_reduce)
 - [bisect()](#bisect)
+- [itertools.product()](#product)
 - [partial()](#partial)
 - [iter()](#iter)
 
@@ -82,6 +83,33 @@ bisect.bisect_right(l, 3)  # In list - output: 5
 ##### insort
 
 Nothing special, but to insert the value in place to the list at the index returned by the corresponding `bisect` method. Eg.  `bisect.insort_left(a, x, lo, hi)` is equivalent to`a.insert(bisect.bisect_left(a, x, lo, hi), x)`
+
+<a name='product'></a>
+
+### itertools.product()
+
+`itertools.``product`(**iterables*, *repeat=1*)
+
+Python 3 itertools: https://docs.python.org/3/library/itertools.html#itertools.product
+
+Cartesian product of input iterables.
+
+```python
+from itertools import product
+
+l = [[1, 2, 3], ['a', 'b', 'c']]
+for i in product(*l):
+    print(i)
+# (1, 'a')
+# (1, 'b')
+# (1, 'c')
+# (2, 'a')
+# (2, 'b')
+# (2, 'c')
+# (3, 'a')
+# (3, 'b')
+# (3, 'c')
+```
 
 <a name='partial'></a>
 
