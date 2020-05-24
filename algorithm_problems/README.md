@@ -12,6 +12,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [N-ary Tree Postorder Traversal](#postorder_traversal)
 - [Increasing Order BST(Inorder Traversal)](#inorder_traversal)
 - [Range Sum of BST](#range_sum_of_bst)
+- [Trim a BST](#trim_bst)
 - [Merge Two Binary Trees](#merge_two_binary_trees)
 
 <a name='climbing_stairs'></a>
@@ -558,6 +559,113 @@ def rangeSumBST(root, L, R):
             if node.val < R:
                 stack.append(node.right)
     return sum
+```
+
+<a name='trim_bst'></a>
+
+## Trim a Binary Search Tree
+
+### Problem Statement
+
+https://leetcode.com/problems/trim-a-binary-search-tree/
+
+Given a binary search tree and the lowest and highest boundaries as `L` and `R`, trim the tree so that all its elements lies in `[L, R]` (R >= L). You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.
+
+**Example 1:**
+
+```
+Input: 
+    1
+   / \
+  0   2
+
+  L = 1
+  R = 2
+
+Output: 
+    1
+      \
+       2
+```
+
+
+
+**Example 2:**
+
+```
+Input: 
+    3
+   / \
+  0   4
+   \
+    2
+   /
+  1
+
+  L = 1
+  R = 3
+
+Output: 
+      3
+     / 
+   2   
+  /
+ 1
+```
+
+### Python Implementation
+
+The `TreeNode` of BST is defined as below:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+```
+
+It can be solved both recursively or iteratively:
+
+```python
+def trimBST(root, L, R):
+    """Recursive solution"""
+    if root is None:
+        return None
+	if root.val > R: # Find the right boundary node
+        return trimBST(root.left, L, R)
+    elif root.val < L: # Find the left boundary node
+        return trimBST(root.left, L, R)
+    # For nodes that in the range, trim both branches
+    root.left = trimBST(root.left. L, R)
+    root.right = trimBST(root.right, L, R)
+    return root
+```
+
+```python
+def trimBST(root, L, R):
+    """Iterative solution"""
+    if root is None:
+        return None
+    # Adjust the root if it is not in range
+	while root and (root.val < L or root.val > R):
+        if root.val < L:
+            root = root.right
+        else:
+            root = root.left
+    # Go through left ang right branches and trim
+    lnode = rnode = root
+    while lnode.left:
+        if lnode.left.val < L:
+            lnode.left = lnode.left.right
+        else:
+            lnode = lnode.left
+    while rnode.right:
+        if rnode.right.val > R:
+            rnode.right = rnode.right.left
+        else:
+            rnode = rnode.right
+    return root
 ```
 
 <a name='merge_two_binary_trees'></a>
