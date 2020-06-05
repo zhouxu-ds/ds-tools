@@ -6,7 +6,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
 - [DI String Match](#di_string_match)
-- [Move Zeroes](#move_zeros)
+- [Move Zeroes](#move_zeroes)
 - [Reverse Linked List](#reverse_linked_list)
 - [Maxinum Depth of N-ary Tree](#max_depth)
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
