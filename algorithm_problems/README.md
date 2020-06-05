@@ -6,6 +6,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 
 - [Climbing Stairs (Fibonacci Number)](#climbing_stairs)
 - [DI String Match](#di_string_match)
+- [Move Zeroes](#move_zeros)
 - [Reverse Linked List](#reverse_linked_list)
 - [Maxinum Depth of N-ary Tree](#max_depth)
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
@@ -137,6 +138,41 @@ def diStringMatch(S):
             res.append(hi)
             hi -= 1
     return res + [hi] # or [lo]. It doesn't matter because they are same right now
+```
+
+<a name='move_zeroes'></a>
+
+## Move Zeroes
+
+### Problem Statement
+
+https://leetcode.com/problems/move-zeroes/
+
+Given an array `nums`, write a function to move all `0`'s to the end of it while maintaining the relative order of the non-zero elements.
+
+**Example:**
+
+```
+Input: [0,1,0,3,12]
+Output: [1,3,12,0,0]
+```
+
+**Note**:
+
+1. You must do this **in-place** without making a copy of the array.
+2. Minimize the total number of operations.
+
+### Python Implementation
+
+Here is a a tricky/clever way of implementing it:
+
+```python
+def moveZeros(nums):
+    i = 0
+    for j in range(len(nums)):
+        if nums[j] != 0:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
 ```
 
 <a name='reverse_linked_list'></a>
