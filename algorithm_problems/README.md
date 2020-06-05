@@ -15,6 +15,10 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [Trim a BST](#trim_bst)
 - [Merge Two Binary Trees](#merge_two_binary_trees)
 
+### Basics
+
+[Binary Search](#binary_search)
+
 <a name='climbing_stairs'></a>
 
 ## Climbing Stairs (Fibonacci Number)
@@ -722,5 +726,43 @@ def mergeTrees(t1, t2):
         return root
     else:
         return t1 or t2
+```
+
+<a name='binary_search'></a>
+
+## Basics
+
+### Binary Search
+
+There can be two ways of implementation: recursive and iterative.
+
+```python
+def binary_search(arr, lo, hi, x):
+    """Recursive implementation"""
+    if hi >= lo:
+        mid = (hi + lo) // 2
+        if x == arr[mid]:
+            return mid
+        elif x < arr[mid]:
+            return binary_search(arr, lo, mid - 1, x)
+        else:
+            return binary_search(arr, mid + 1, hi, x)
+    else:
+        return -1  
+```
+
+```python
+def binary_search(arr, x):
+    """Iterative implementation"""
+    lo, hi = 0, len(x) - 1
+    mid = (lo + hi) // 2
+    while lo <= hi:
+        if x == arr[mid]:
+            return mid
+        elif x < arr[mid]:
+            hi = mid - 1
+        else:
+            lo = mid + 1
+    return -1
 ```
 
