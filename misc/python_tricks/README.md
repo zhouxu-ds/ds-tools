@@ -6,6 +6,8 @@ Here are some tricks/usages of Python3 built-in functions and standard libraries
 
 - [map(), filter(), and reduce()](#map_filter_reduce)
 - [bisect()](#bisect)
+- [itertools.accumulate()](#accumulate)
+- [itertools.chain()](#chain)
 - [itertools.product()](#product)
 - [partial()](#partial)
 - [iter()](#iter)
@@ -84,11 +86,49 @@ bisect.bisect_right(l, 3)  # In list - output: 5
 
 Nothing special, but to insert the value in place to the list at the index returned by the corresponding `bisect` method. Eg.  `bisect.insort_left(a, x, lo, hi)` is equivalent to`a.insert(bisect.bisect_left(a, x, lo, hi), x)`
 
+<a name='accumulate'></a>
+
+### Itertools.accumulate()
+
+`itertools.accumulate`(*iterable*[, *func*, ***, *initial=None*])
+
+Python 3 itertools: https://docs.python.org/3/library/itertools.html#itertools.accumulate
+
+Make an iterator that returns the accumulated results (eg. accumulated sum)
+
+```python
+from itertools import accumulate
+
+print(list(accumulate([1, 2, 3, 4, 5])))
+# [1, 3, 6, 10, 15]
+```
+
+<a name='chain'></a>
+
+### Itertools.chain()
+
+`itertools.chain`(**iterables*)
+
+*classmethod* `chain.from_iterable`(*iterable*)
+
+Exhaust iterables in iterables.
+
+```python
+from itertools import chain
+
+A = ['ABC', 'DEF']
+for a in chain(*A):
+    print(a) # A, B, C, D, E, F  
+    
+for a in chain.from_iterable(A):
+    print(a) # A, B, C, D, E, F
+```
+
 <a name='product'></a>
 
 ### itertools.product()
 
-`itertools.``product`(**iterables*, *repeat=1*)
+`itertools.product`(**iterables*, *repeat=1*)
 
 Python 3 itertools: https://docs.python.org/3/library/itertools.html#itertools.product
 
