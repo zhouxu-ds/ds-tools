@@ -2,7 +2,7 @@
 
 Some of the materials are from Corey Schafer's Python Tutorial series: [video](https://www.youtube.com/watch?v=eirjjyP2qcQ) and [GitHub page](https://github.com/CoreyMSchafer/code_snippets/blob/master/Datetime/dates.py).
 
-Examples of using the `datetime` module can be found in the jupyter notebook that I made: [ipynb](datetime.ipynb) and [html]()
+Examples of using the `datetime` module can be found in the jupyter notebook that I made: [ipynb](datetime.ipynb) and [html](https://htmlpreview.github.io/?https://github.com/zhouxu-ds/DS_tools/blob/master/misc/datetime/datetime.html)
 
 ## Table of Content
 
