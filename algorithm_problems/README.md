@@ -15,6 +15,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [Range Sum of BST](#range_sum_of_bst)
 - [Trim a BST](#trim_bst)
 - [Merge Two Binary Trees](#merge_two_binary_trees)
+- [Paint House (Memoization and Dynamic Programming)](#paint_house)
 
 ### Basics
 
@@ -766,7 +767,83 @@ def mergeTrees(t1, t2):
 
 <a name='binary_search'></a>
 
+<a name='paint_house'></a>
+
+## Paint House (Memoization and Dynamic Programming)
+
+### Problem Statement
+
+https://leetcode.com/problems/paint-house/
+
+There are a row of *n* houses, each house can be painted with one of the three colors: red, blue or green. The cost of painting each house with a certain color is different. You have to paint all the houses such that no two adjacent houses have the same color.
+
+The cost of painting each house with a certain color is represented by a `*n* x *3*` cost matrix. For example, `costs[0][0]` is the cost of painting house 0 with color red; `costs[1][2]` is the cost of painting house 1 with color green, and so on... Find the minimum cost to paint all houses.
+
+**Note:**
+All costs are positive integers.
+
+**Example:**
+
+```
+Input: [[17,2,17],[16,16,5],[14,3,19]]
+Output: 10
+Explanation: Paint house 0 into blue, paint house 1 into green, paint house 2 into blue. 
+             Minimum cost: 2 + 5 + 3 = 10.
+```
+
+### Python Implementation
+
+There are two ways to implement: memoization and dynamic programming.
+
+Both **Memoization** and **Dynamic Programming** solves individual subproblem only once. **Memoization** uses recursion and works top-down, whereas **Dynamic programming** (iterative) moves in opposite direction solving the problem bottom-up.
+
+The detailed explanation of this problem can be found in solution of this problem: https://leetcode.com/problems/paint-house/
+
+**Memoization**: It uses recursion (to mimic bottom up tree) with a dictionary to memoize the calculated results.
+
+```python
+def minCost(self, costs):
+    def paint_cost(n, color):
+        if (n, color) in self.memo:
+            return self.memo[(n, color)]
+        total_cost = costs[n][color]
+        if n == len(costs) - 1:
+            pass
+        elif color == 0:
+            total_cost += min(paint_cost(n + 1, 1), paint_cost(n + 1, 2))
+        elif color == 1:
+            total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 2))
+        else:
+            total_cost += min(paint_cost(n + 1, 0), paint_cost(n + 1, 1))
+        self.memo[(n, color)] = total_cost
+        return total_cost
+
+    if costs == []:
+        return 0
+
+    self.memo = {}
+    return min(paint_cost(0, 0), paint_cost(0, 1), paint_cost(0, 2))
+```
+
+**Dynamic Programming**: It is a bottom up approach that calculates the minimum value of each value below until we reach the top level.
+
+```python
+def minCost(self, costs: List[List[int]]) -> int:    
+    for n in reversed(range(len(costs) - 1)):
+        # Total cost of painting nth house red.
+        costs[n][0] += min(costs[n + 1][1], costs[n + 1][2])
+        # Total cost of painting nth house green.
+        costs[n][1] += min(costs[n + 1][0], costs[n + 1][2])
+        # Total cost of painting nth house blue.
+        costs[n][2] += min(costs[n + 1][0], costs[n + 1][1])
+
+    if len(costs) == 0: return 0
+    return min(costs[0]) # Return the minimum in the first row.
+```
+
 ## Basics
+
+<a name='binary_search'></a>
 
 ### Binary Search
 
