@@ -765,8 +765,6 @@ def mergeTrees(t1, t2):
         return t1 or t2
 ```
 
-<a name='binary_search'></a>
-
 <a name='paint_house'></a>
 
 ## Paint House (Memoization and Dynamic Programming)
