@@ -866,8 +866,8 @@ def binary_search(arr, lo, hi, x):
 def binary_search(arr, x):
     """Iterative implementation"""
     lo, hi = 0, len(x) - 1
-    mid = (lo + hi) // 2
     while lo <= hi:
+    	mid = (lo + hi) // 2
         if x == arr[mid]:
             return mid
         elif x < arr[mid]:
