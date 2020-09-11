@@ -15,6 +15,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [Range Sum of BST](#range_sum_of_bst)
 - [Trim a BST](#trim_bst)
 - [Merge Two Binary Trees](#merge_two_binary_trees)
+- [Min Cost Climbing Stairs (Dynamic Programming)](#min_cost_climbing_stairs)
 - [Paint House (Memoization and Dynamic Programming)](#paint_house)
 
 ### Basics
@@ -763,6 +764,49 @@ def mergeTrees(t1, t2):
         return root
     else:
         return t1 or t2
+```
+
+<a name='min_cost_climbing_stairs'></a>
+
+## Min Cost Climbing Stairs (Dynamic Programming)
+
+### Problem Statement
+
+https://leetcode.com/problems/min-cost-climbing-stairs/
+
+On a staircase, the `i`-th step has some non-negative cost `cost[i]` assigned (0 indexed).
+
+Once you pay the cost, you can either climb one or two steps. You need to find minimum cost to reach the top of the floor, and you can either start from the step with index 0, or the step with index 1.
+
+**Example 1:**
+
+```
+Input: cost = [10, 15, 20]
+Output: 15
+Explanation: Cheapest is start on cost[1], pay that cost and go to the top.
+```
+
+**Example 2:**
+
+```
+Input: cost = [1, 100, 1, 1, 1, 100, 1, 1, 100, 1]
+Output: 6
+Explanation: Cheapest is start on cost[0], and only step on 1s, skipping cost[3].
+```
+
+### Dynamic Programming Thinking
+
+- For any step(index) in stairs(cost), we can jump into that step(index) from step - 2 or step -1.
+- Therefore, we accumulate costs
+- return cost[-1] or cost[-2] because both steps(indexes) can complete climbing.
+
+### Python Implementation
+
+```python
+def minCostClimbingStairs(cost):
+    for i in range(2, len(cost)): 
+        cost[i] += min(cost[i - 1], cost[i - 2])
+        return min(cost[-1], cost[-2])
 ```
 
 <a name='paint_house'></a>
