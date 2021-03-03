@@ -1,0 +1,3 @@
+Some core data science libraries that I frequently use. Can be installed by calling:
+
+conda install -c conda-forge python numpy matplotlib pandas jupyter scipy scikit-learn imbalanced-learn seaborn plotly xgboost tqdm librosa wget scrapy selenium beautifulsoup4 youtube-dl

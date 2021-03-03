@@ -4,3 +4,5 @@
 - [datetime](datetime)
 - [Debug in spyder](debug_in_spyder)
 - [Regular Expression](regex)
+
+- [Environment Setup](environment_DS_core.txt)
