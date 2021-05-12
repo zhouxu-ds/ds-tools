@@ -4,6 +4,7 @@ Here are some tricks/usages of Python3 built-in functions and standard libraries
 
 ### Table of Content
 
+- [ord() and chr()](#ord_chr)
 - [map(), filter(), and reduce()](#map_filter_reduce)
 - [bisect()](#bisect)
 - [itertools.accumulate()](#accumulate)
@@ -11,6 +12,18 @@ Here are some tricks/usages of Python3 built-in functions and standard libraries
 - [itertools.product()](#product)
 - [partial()](#partial)
 - [iter()](#iter)
+
+<a name='ord_chr'></a>
+
+### ord() and chr()
+
+https://docs.python.org/3/library/functions.html#ord
+
+`ord` (c): Given a string representing one Unicode character, return an integer representing the Unicode number of that character.
+
+https://docs.python.org/3/library/functions.html#chr
+
+`chr`(i): Return the string representing the character whose Unicode number is the integer i. It is the inverse function of `ord`.
 
 <a name='map_filter_reduce'></a>
 
