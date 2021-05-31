@@ -183,7 +183,7 @@ Approaches:
 
 Reference: https://datascience.stackexchange.com/a/24112
 $$
-P(y=j|x) = \cfrac{e^{x_j}}{\sum^K_{k=1}e^{x_k)}}
+P(y=j|x) = \cfrac{e^{x_j}}{\sum^K_{k=1}e^{x_k}}
 $$
 Softmax function is a generalization of logistic function in multi-class problems, which normalizes data between 0 and 1. It has 3 nice properties:
 
