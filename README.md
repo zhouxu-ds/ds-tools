@@ -7,6 +7,7 @@ This repository is used to keep track of my learning progress of some essential 
 - [Algorithm Problems](algorithm_problems)
 - [Math](math)
 - [Machine Learning](machine_learning)
+- [Deep Learning](deep_learning)
 - [Data Science Handbook](ds_handbook)
   - [IPython (Jupyter Notebook)](ds_handbook/ipython)
   - [Numpy](ds_handbook/numpy)
