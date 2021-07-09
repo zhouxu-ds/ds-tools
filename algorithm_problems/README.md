@@ -12,6 +12,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
 - [N-ary Tree Postorder Traversal](#postorder_traversal)
 - [★ BST Inorder Traversal](#bst_inorder_traversal)
+- [★ BST Postorder Traversal](#bst_postorder_traversal)
 - [Increasing Order BST(Inorder Traversal)](#inorder_traversal)
 - [Range Sum of BST](#range_sum_of_bst)
 - [Trim a BST](#trim_bst)
@@ -407,10 +408,12 @@ def postorder(root):
     if root is None:
         return []
     res = []
+    
     def recursion(root, res):
         for child in root.children:
             recursion(root, res)
 		res.append(root.val)
+        
     recursion(root, res)
     return res
 ```
@@ -458,6 +461,8 @@ def postorder(root):
 <a name='BST_inorder_traversal'></a>
 
 ## ★ BST Inorder Traversal
+
+**Note**: See [difference of tree traversals (inorder, preorder and postorder)](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
 
 ### Problem Statement
 
@@ -531,7 +536,7 @@ def inorderTraversal(root):
 
 ```python
 def inorderTraversal(root):
-    """Iterative solutoin"""
+    """Iterative solution"""
     if root is None:
         return []
     res, stack = [], [(root, 0)]
@@ -544,6 +549,71 @@ def inorderTraversal(root):
                     stack.append()
                     stack.append((node, 1))
                     stack.append((node.left, 0))
+    return res
+```
+
+<a name='BST_postorder_traversal'></a>
+
+## ★BST Postorder Traversal
+
+**Note**: See [difference of tree traversals (inorder, preorder and postorder)](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
+
+### Problem Statement
+
+https://leetcode.com/problems/binary-tree-postorder-traversal/
+
+Given the `root` of a binary tree, return *the postorder traversal of its nodes' values*.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/08/28/pre1.jpg)
+
+```
+Input: root = [1,null,2,3]
+Output: [3,2,1]
+```
+
+### Python Implementation
+
+The `TreeNode` class for BST is defined as below:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+```
+
+It can be implemented both recursively and iteratively:
+
+```python
+def postorderTraversal(root):
+    """Recursive solution"""
+    def recursion(node):
+        if node:
+            recursion(node.left)
+            recursion(node.right)
+            res.append(node.val)
+
+    res = []
+    recursion(root)
+    return res
+```
+
+```python
+def postorderTraversal(root):
+    """Iterative solution"""
+    res, stack = [], [(root, 0)]
+    while stack:
+        node, visited = stack.pop()
+        if node:
+            if visited:
+                res.append(node.val)
+            else:
+                stack.extend([(node, 1), (node.right, 0), (node.left, 0)])
     return res
 ```
 
