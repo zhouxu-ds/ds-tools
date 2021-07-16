@@ -12,6 +12,7 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 - [N-ary Tree Preorder Traversal](#preorder_traversal)
 - [N-ary Tree Postorder Traversal](#postorder_traversal)
 - [★ BST Inorder Traversal](#bst_inorder_traversal)
+- [★ BST Preorder Traversal](#bst_preorder_traversal)
 - [★ BST Postorder Traversal](#bst_postorder_traversal)
 - [Increasing Order BST(Inorder Traversal)](#inorder_traversal)
 - [Range Sum of BST](#range_sum_of_bst)
@@ -552,7 +553,70 @@ def inorderTraversal(root):
     return res
 ```
 
-<a name='BST_postorder_traversal'></a>
+<a name='bst_pretorder_traversal'></a>
+
+## ★BST Pretorder Traversal
+
+**Note**: See [difference of tree traversals (inorder, preorder and postorder)](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
+
+### Problem Statement
+
+https://leetcode.com/problems/binary-tree-preorder-traversal/
+
+Given the `root` of a binary tree, return *the preorder traversal of its nodes' values*.
+
+ 
+
+**Example 1:**
+
+![img](https://assets.leetcode.com/uploads/2020/09/15/inorder_1.jpg)
+
+```
+Input: root = [1,null,2,3]
+Output: [1,2,3]
+```
+
+### Python Implementation
+
+The `TreeNode` class for BST is defined as below:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+```
+
+It can be implemented both recursively and iteratively:
+
+```python
+def preorderTraversal(root):
+    """Recursive solution"""
+    def recursion(node):
+        if node:
+            res.append(node.val)
+            recursion(node.left)
+            recursion(node.right)
+
+    res = []
+    recursion(root)
+    return res
+```
+
+```python
+def preorderTraversal(root):
+    """Iterative solution"""
+    res, stack = [], [root]
+    while stack:
+        node = stack.pop()
+        if node:
+            res.append(node.val)
+            stack.extend([node.right, node.left])
+    return res
+```
+
+<a name='bst_postorder_traversal'></a>
 
 ## ★BST Postorder Traversal
 
