@@ -25,6 +25,8 @@ Here are some important/tricky algorithm problems that I noted from Leetcode.
 
 [Binary Search](#binary_search)
 
+[Greatest Common Divisor](#gcd)
+
 <a name='climbing_stairs'></a>
 
 ## Climbing Stairs (Fibonacci Number)
