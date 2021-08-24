@@ -1148,5 +1148,19 @@ def binary_search(arr, x):
     return -1
 ```
 
+<a name='gcd'></a>
+
+### Greatest Common Divisor
+
+Here is the implementation using Euclidean algorithm:
+
+```python
+def cal_gcd(a, b):
+    """Note: a should be smaller or equal to b"""
+    while a:
+        a, b = a % b, a
+    return a
+```
+
 
 
