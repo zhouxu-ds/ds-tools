@@ -22,7 +22,7 @@ This repository is used to keep track of my learning progress of some essential 
 - [Debug in Spyder](misc/debug_in_spyder)
 - [Regular Expression](misc/regex)
 - [Environment Setup](misc/environment_setup)
-- [Cheat Sheet](misc/CheatSheet.md)
+- [Cheat Sheet](misc/cheatsheet)
 
 
 

@@ -1,5 +1,7 @@
 # Cheat Sheet
 
+[toc]
+
 ## Stats
 
 ### Central Limit Theorem
@@ -64,6 +66,24 @@ https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9
 **Boosting**: Several instance of the same base model are trained in sequence such that in each iteration, the way to train the current weak learner depends on the previous weak learner, especially on how they are performing on the data. Aims for lowering bias, so suitable for high bias, low variance base models.
 
 **Stacking**: Different weak learners are fitted independantly from each other and a meta-model is trained on top to predict outputs from outputs returned by the base models.
+
+### What is Feature Store
+
+https://www.phdata.io/blog/what-is-a-feature-store/
+
+A feature store is a tool for storing commonly used features. When data scientists develop features for a [machine learning](https://www.phdata.io/blog/the-ultimate-guide-to-building-a-machine-learning-solution/) model, those features can be added to the feature store. This makes those features available for reuse. 
+
+When new examples (e.g. users of an application, customers of a business, or items in a product catalog) are added, the previously developed features will be pre-computed so that the features are available for inference.
+
+A full-fledged feature store:
+
+- Transforms raw [data into feature values by executing data pipelines](https://www.phdata.io/blog/building-data-pipelines-with-aws-cloudformation/).
+- Stores and manages feature values.
+- Retrieves data for training or inference.
+
+![feature_store](feature_store.png)
+
+
 
 ## Programming
 

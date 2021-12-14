@@ -5,4 +5,4 @@
 - [Debug in spyder](debug_in_spyder)
 - [Regular Expression](regex)
 - [Environment Setup](environment_setup)
-- [Cheat Sheet](CheatSheet.md)
+- [Cheat Sheet](cheatsheet)
