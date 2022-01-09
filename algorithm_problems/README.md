@@ -548,10 +548,8 @@ def inorderTraversal(root):
         if node:
             if visited:
                 res.append(node.val)
-                else:
-                    stack.append()
-                    stack.append((node, 1))
-                    stack.append((node.left, 0))
+            else:
+                stack.extend([(node.right, 0), (node, 1), (node.left, 0)])
     return res
 ```
 
