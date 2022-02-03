@@ -1,6 +1,6 @@
 # Python Tricks
 
-Here are some tricks/usages of Python3 built-in functions and standard libraries that I found useful and cool. It will be keep updating.
+Here are some tricks/usages of Python3 built-in functions and standard libraries that I found useful and cool. It will keep updating.
 
 ### Table of Content
 
