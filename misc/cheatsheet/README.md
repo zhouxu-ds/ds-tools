@@ -67,6 +67,23 @@ https://towardsdatascience.com/ensemble-methods-bagging-boosting-and-stacking-c9
 
 **Stacking**: Different weak learners are fitted independantly from each other and a meta-model is trained on top to predict outputs from outputs returned by the base models.
 
+### Why is XGBoost Good
+
+https://www.kaggle.com/general/196541
+
+XGBoost is good becuase of several reasons:
+
+- hardware optimization
+- parallelized tree building
+- efficient handling of missing data
+- tree pruning using ‘depth-first’ approach
+- built-in cross-validation capability (at each iteration)
+- regularization through both LASSO (L1) and Ridge (L2) for avoiding overfitting
+
+### XGBoost vs LightGBM
+
+The main difference between these frameworks is the way they are growing. XGBoost applies **level-wise** tree growth where LightGBM applies **leaf-wise** tree growth. Level-wise approach grows horizontal whereas leaf-wise grows vertical.
+
 ### What is Feature Store
 
 https://www.phdata.io/blog/what-is-a-feature-store/
