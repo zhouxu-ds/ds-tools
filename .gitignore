@@ -2,3 +2,5 @@
 .DS_Store
 .vscode/
 .gitignore
+math/misc_equations.md
+deep_learning/notebook/test.ipynb

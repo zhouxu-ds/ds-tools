@@ -196,7 +196,7 @@ Reference: https://www.cs.princeton.edu/courses/archive/spring16/cos495/slides/M
 It can also be interpreted using Bayesian Theorem:
 $$
 p(y=j|x)
-=\cfrac{p(x|y=j)\cdot p(y=1)}{\sum^K_{k=1}p(x|y=k)\cdot p(y=k)}
+=\cfrac{p(x|y=j)\cdot p(y=j)}{\sum^K_{k=1}p(x|y=k)\cdot p(y=k)}
 =\cfrac{e^{a_j}}{\sum^{K}_{k=1}e^{a_k}}
 $$
 where
