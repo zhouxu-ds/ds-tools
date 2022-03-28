@@ -26,5 +26,14 @@ This repository is used to keep track of my learning progress of some essential 
 
 
 
+### Tools for certain tasks
+- [Librosa](https://librosa.org/doc/latest/index.html): Audio Analysis and Feature Extraction
+- [Spleeter](https://github.com/deezer/spleeter): Split vocal from music, or even different musical elements
+- [youtube-dl](https://github.com/ytdl-org/youtube-dl/blob/master/README.md#readme): Download YouTube Videos
+- [Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html) ([AWS OpenSearch](https://aws.amazon.com/opensearch-service/)): Index and search large volume data quickly. Provides real-time type ahead search capabilities plus analytics and dashboards
+- [kepler.gl](kepler.gl): 3-D interactive visualization of geospatial data, with playback functions with respect to time
+
+
+
 
 
